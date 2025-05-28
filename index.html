@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Code Rhythm - Music for Deep Work Focus</title>
+<meta content="Code Rhythm creates thematic music albums for programmers, helping them achieve deep work focus. Explore our albums and boost your productivity." name="description"/>
+<!-- OG Tags -->
+<meta content="Code Rhythm - Music for Deep Work Focus" property="og:title"/>
+<meta content="Code Rhythm creates thematic music albums for programmers, helping them achieve deep work focus. Explore our albums and boost your productivity." property="og:description"/>
+<meta content="assets/img_1200x630_86372868.png" property="og:image"/>
+<meta content="website" property="og:type"/>
+<meta content="YOUR_ACTUAL_WEBSITE_URL_HERE" property="og:url"/> <!-- Replace with actual URL -->
+<!-- Favicon -->
+<link href="assets/img_32x32_97219ee3.png" rel="icon" type="image/png"/>
+<!-- Tailwind CSS -->
+<script src="assets/script_f5fd76c0.js"></script>
+<!-- Animate.css -->
+<link href="assets/style_97084e57.css" rel="stylesheet"/>
+<!-- AOS CSS -->
+<link href="assets/style_41b5b8a9.css" rel="stylesheet"/>
+<!-- Font Awesome -->
+<link href="assets/style_96bff989.css" rel="stylesheet"/>
+<script crossorigin="" src="assets/script_74f68442.js"></script>
+<style>
+        @font-face {
+            font-family: 'Font Awesome 6 Free';
+            font-style: normal;
+            font-weight: 900;
+            font-display: block;
+            src: url('/chat/webfonts/fa-solid-900.woff2') format('woff2'),
+                 url('/chat/webfonts/fa-solid-900.ttf') format('truetype');
+        }
+        @font-face {
+            font-family: 'Font Awesome 6 Free';
+            font-style: normal;
+            font-weight: 400;
+            font-display: block;
+            src: url('/chat/webfonts/fa-regular-400.woff2') format('woff2'),
+                 url('/chat/webfonts/fa-regular-400.ttf') format('truetype');
+        }
+        @font-face {
+            font-family: 'Font Awesome 6 Brands';
+            font-style: normal;
+            font-weight: 400;
+            font-display: block;
+            src: url('/chat/webfonts/fa-brands-400.woff2') format('woff2'),
+                 url('/chat/webfonts/fa-brands-400.ttf') format('truetype');
+        }
+        /* Custom scrollbar for cyberpunk aesthetic (optional) */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #070808;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #6E1CA1;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #0098B0;
+        }
+    </style>
+<!-- GSAP -->
+<script src="assets/script_9a0329fc.js"></script>
+<!-- Particles.js -->
+<script src="assets/script_00aa54fc.js"></script>
+<!-- PapaParse (CSV Parsing) -->
+<script src="assets/script_dc2b6218.js"></script>
+<script>
+        // Tailwind Customization (inline, as per instructions)
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-dark': '#070808',
+                        'brand-purple': '#6E1CA1',
+                        'brand-cyan': '#0098B0',
+                        'brand-indigo': '#3A348C',
+                        'brand-green-neon': '#39FF14', // Added for extra cyberpunk accent
+                    },
+                    fontFamily: {
+                        'sans': ['"Inter"', 'sans-serif'], // Example: Using a common clean font
+                        'mono': ['"Fira Code"', 'monospace'] // Example: For code-like text
+                    },
+                    animation: {
+                        'fade-in-up': 'fadeInUp 1s ease-out',
+                        'pulse-glow': 'pulseGlow 2s infinite ease-in-out'
+                    },
+                    keyframes: {
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        pulseGlow: {
+                            '0%, 100%': { boxShadow: '0 0 5px #0098B0, 0 0 10px #0098B0' },
+                            '50%': { boxShadow: '0 0 15px #6E1CA1, 0 0 25px #6E1CA1' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+<link href="assets/style_7dc4f947.css" rel="stylesheet"/>
+<script>
+            window.load_data_from_csv = (filename) => {
+                // Implementation needed when code is downloaded
+            };
+
+            window.save_data_to_csv = (filename, data) => {
+                // Implementation needed when code is downloaded
+            };
+
+            window.call_llm = (system_prompt, user_messages, json_fields) => {
+                // Implementation needed when code is downloaded
+            };
+        </script></head>
+<body class="bg-[#070808] text-gray-300 font-sans antialiased">
+<!-- Particles.js container -->
+<div class="fixed inset-0 z-[-1]" id="particles-js"></div>
+<!-- Header -->
+<header class="fixed top-0 left-0 right-0 z-50 bg-[#070808]/80 backdrop-blur-md shadow-lg">
+<nav class="container mx-auto px-6 py-3 flex justify-between items-center">
+<a class="text-2xl font-bold" href="#">
+<img alt="Code Rhythm Logo" class="h-10 md:h-12" onerror="this.alt='Code Rhythm Logo'; this.style.display='block'; this.style.width='150px'; this.style.color='white'; this.innerText='Code Rhythm';" src="assets/img_200x60_aca9a806.png"/>
+</a>
+<div class="space-x-4">
+<a class="text-gray-300 hover:text-[#0098B0] transition-colors duration-300" href="#albums">Albums</a>
+<a class="text-gray-300 hover:text-[#0098B0] transition-colors duration-300" href="#why-us">Why Us</a>
+<a class="bg-[#6E1CA1] hover:bg-[#0098B0] text-white font-semibold px-4 py-2 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 ease-in-out transform hover:scale-105" href="#contact">Get Updates</a>
+</div>
+</nav>
+</header>
+<!-- Main Content -->
+<main>
+<!-- Hero Section -->
+<section class="min-h-screen flex items-center justify-center relative overflow-hidden pt-20" id="hero" style="background-image: url('https://cdn.simulationtheory.ai/gasset/?asset=img&amp;prompt=abstract%20dark%20cyberpunk%20background%20with%20flowing%20neon%20purple%20and%20blue%20energy%20patterns%2C%20no%20text%2C%20no%20characters%2C%20atmospheric%2C%20suitable%20for%20website%20hero%20background&amp;w=1920&amp;h=1080&amp;style=realistic&amp;effect=blur'); background-size: cover; background-position: center;">
+<div class="absolute inset-0 bg-[#070808] opacity-70"></div>
+<div class="container mx-auto px-6 text-center relative z-10">
+<h1 class="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6 hero-title">
+<span class="block">Unlock Your <span class="text-[#6E1CA1]">Deep Work</span> Mode.</span>
+<span class="block text-[#0098B0] text-3xl sm:text-4xl md:text-5xl mt-2">Soundtracks for Programmers.</span>
+</h1>
+<p class="text-lg md:text-xl text-gray-300 mb-10 max-w-2xl mx-auto hero-subtitle">
+                    Code Rhythm crafts thematic music albums designed to enhance focus, boost productivity, and immerse you in the coding flow.
+                </p>
+<a class="bg-[#0098B0] hover:bg-[#3A348C] text-white font-bold py-3 px-8 rounded-lg text-lg shadow-xl hover:shadow-2xl transition-all duration-300 ease-in-out transform hover:scale-105 inline-flex items-center hero-cta" href="#albums">
+                    Explore Albums <i class="fas fa-arrow-right ml-2"></i>
+</a>
+</div>
+</section>
+<!-- About Section -->
+<section class="py-16 md:py-24 bg-[#070808]" id="about">
+<div class="container mx-auto px-6">
+<div class="text-center mb-12 md:mb-16" data-aos="fade-up">
+<h2 class="text-3xl md:text-4xl font-bold text-white mb-4">The <span class="text-[#6E1CA1]">Rhythm</span> of Your <span class="text-[#0098B0]">Code</span></h2>
+<p class="text-lg text-gray-400 max-w-3xl mx-auto">
+                        In the world of programming, focus is paramount. Code Rhythm provides the auditory landscape for your most demanding tasks. Our music is engineered to be a non-intrusive companion, helping you dive deeper, think clearer, and build faster.
+                    </p>
+</div>
+<div class="grid md:grid-cols-3 gap-8 text-center">
+<div class="p-6 bg-[#0e0f0f] rounded-xl shadow-2xl border border-[#3A348C]/30" data-aos="fade-up" data-aos-delay="100">
+<i class="fas fa-brain text-4xl text-[#6E1CA1] mb-4"></i>
+<h3 class="text-xl font-semibold text-white mb-2">Enhance Focus</h3>
+<p class="text-gray-400">Minimize distractions and maintain peak concentration with soundscapes tailored for cognitive tasks.</p>
+</div>
+<div class="p-6 bg-[#0e0f0f] rounded-xl shadow-2xl border border-[#3A348C]/30" data-aos="fade-up" data-aos-delay="200">
+<i class="fas fa-bolt text-4xl text-[#0098B0] mb-4"></i>
+<h3 class="text-xl font-semibold text-white mb-2">Boost Productivity</h3>
+<p class="text-gray-400">Enter your flow state faster and sustain it longer, turning hours of coding into productive sprints.</p>
+</div>
+<div class="p-6 bg-[#0e0f0f] rounded-xl shadow-2xl border border-[#3A348C]/30" data-aos="fade-up" data-aos-delay="300">
+<i class="fas fa-headphones-alt text-4xl text-[#3A348C] mb-4"></i>
+<h3 class="text-xl font-semibold text-white mb-2">Immersive Sound</h3>
+<p class="text-gray-400">Thematic albums with smart, tech-inspired titles that resonate with your passion for programming.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Albums Section -->
+<section class="py-16 md:py-24 bg-gradient-to-b from-[#070808] to-[#0a0b0b]" id="albums">
+<div class="container mx-auto px-6">
+<h2 class="text-3xl md:text-4xl font-bold text-white text-center mb-12 md:mb-16" data-aos="fade-up">Our Sonic Compilations</h2>
+<div class="grid md:grid-cols-3 gap-8 lg:gap-12">
+<!-- Album 1: The Snake Pulse -->
+<div class="bg-[#0e0f0f] rounded-xl shadow-2xl overflow-hidden transform hover:scale-105 transition-transform duration-300 border border-[#6E1CA1]/50" data-aos="zoom-in-up">
+<img alt="Album Cover: The Snake Pulse" class="w-full h-auto object-cover aspect-square" onerror="this.alt='The Snake Pulse album cover placeholder'; this.src='https://via.placeholder.com/600x600/070808/6E1CA1?text=The+Snake+Pulse';" src="assets/img_600x600_ee9c3680.png"/>
+<div class="p-6">
+<h3 class="text-2xl font-semibold text-white mb-2">The Snake Pulse</h3>
+<p class="text-sm text-[#6E1CA1] font-medium mb-3">GENRE: Ambient // Pythonic Beats</p>
+<p class="text-gray-400 mb-4 text-sm">Flowing rhythms and hypnotic melodies inspired by the elegance of Python. Perfect for scripting marathons and data deep dives.</p>
+<a aria-label="Listen to The Snake Pulse" class="inline-block bg-[#6E1CA1] hover:bg-opacity-80 text-white font-semibold px-6 py-2 rounded-lg text-sm transition-colors duration-300" href="#">Listen Now <i class="fas fa-play ml-1"></i></a>
+</div>
+</div>
+<!-- Album 2: Neural Nexus - The Era of AI -->
+<div class="bg-[#0e0f0f] rounded-xl shadow-2xl overflow-hidden transform hover:scale-105 transition-transform duration-300 border border-[#0098B0]/50" data-aos="zoom-in-up" data-aos-delay="150">
+<img alt="Album Cover: Neural Nexus - The Era of AI" class="w-full h-auto object-cover aspect-square" onerror="this.alt='Neural Nexus album cover placeholder'; this.src='https://via.placeholder.com/600x600/070808/0098B0?text=Neural+Nexus';" src="assets/img_600x600_2b933f6f.png"/>
+<div class="p-6">
+<h3 class="text-2xl font-semibold text-white mb-2">Neural Nexus - The Era of AI</h3>
+<p class="text-sm text-[#0098B0] font-medium mb-3">GENRE: Electronic // AI Inspired</p>
+<p class="text-gray-400 mb-4 text-sm">Complex soundscapes for complex algorithms. Tune into the frequency of artificial intelligence and machine learning.</p>
+<a aria-label="Listen to Neural Nexus" class="inline-block bg-[#0098B0] hover:bg-opacity-80 text-white font-semibold px-6 py-2 rounded-lg text-sm transition-colors duration-300" href="#">Listen Now <i class="fas fa-play ml-1"></i></a>
+</div>
+</div>
+<!-- Album 3: Bytecode Grooves (Upcoming) -->
+<div class="bg-[#0e0f0f] rounded-xl shadow-2xl overflow-hidden transform hover:scale-105 transition-transform duration-300 border border-[#3A348C]/50" data-aos="zoom-in-up" data-aos-delay="300">
+<img alt="Album Cover: Bytecode Grooves" class="w-full h-auto object-cover aspect-square" onerror="this.alt='Bytecode Grooves album cover placeholder'; this.src='https://via.placeholder.com/600x600/070808/3A348C?text=Bytecode+Grooves';" src="assets/img_600x600_3ec88e19.png"/>
+<div class="p-6">
+<h3 class="text-2xl font-semibold text-white mb-2">Bytecode Grooves</h3>
+<p class="text-sm text-[#3A348C] font-medium mb-3">GENRE: Lo-fi // Systems Level</p>
+<p class="text-gray-400 mb-4 text-sm">Smooth, compiled beats for when you're deep in the machine. (Coming Soon - Stay Tuned!)</p>
+<a aria-label="Get notified for Bytecode Grooves" class="inline-block bg-[#3A348C] hover:bg-opacity-80 text-white font-semibold px-6 py-2 rounded-lg text-sm transition-colors duration-300" href="#contact">Get Notified <i class="fas fa-bell ml-1"></i></a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Why Us / Benefits Section -->
+<section class="py-16 md:py-24 bg-[#070808]" id="why-us">
+<div class="container mx-auto px-6">
+<div class="text-center mb-12 md:mb-16" data-aos="fade-up">
+<h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Engineered for <span class="text-[#0098B0]">Programmer</span> Workflow</h2>
+<p class="text-lg text-gray-400 max-w-3xl mx-auto">
+                        Our music isn't just background noise; it's a tool. Each track is crafted to align with the cognitive demands of coding, debugging, and creative problem-solving.
+                    </p>
+</div>
+<div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+<div class="flex items-start space-x-4 p-4" data-aos="fade-right">
+<i class="fas fa-code text-3xl text-[#6E1CA1] mt-1"></i>
+<div>
+<h4 class="text-xl font-semibold text-white mb-1">Thematic Cohesion</h4>
+<p class="text-gray-400 text-sm">Albums and tracks inspired by programming languages, AI concepts, and tech culture.</p>
+</div>
+</div>
+<div class="flex items-start space-x-4 p-4" data-aos="fade-right" data-aos-delay="100">
+<i class="fas fa-assistive-listening-systems text-3xl text-[#0098B0] mt-1"></i>
+<div>
+<h4 class="text-xl font-semibold text-white mb-1">Minimal Distractions</h4>
+<p class="text-gray-400 text-sm">Instrumental focus with sparse, textural vocals that don't break your concentration.</p>
+</div>
+</div>
+<div class="flex items-start space-x-4 p-4" data-aos="fade-right" data-aos-delay="200">
+<i class="fas fa-layer-group text-3xl text-[#3A348C] mt-1"></i>
+<div>
+<h4 class="text-xl font-semibold text-white mb-1">Mood-Based Selection</h4>
+<p class="text-gray-400 text-sm">Find the perfect soundtrack for any task, from high-energy coding to deep analytical thought.</p>
+</div>
+</div>
+<div class="flex items-start space-x-4 p-4" data-aos="fade-right" data-aos-delay="300">
+<i class="fas fa-infinity text-3xl text-[#brand-green-neon] mt-1"></i>
+<div>
+<h4 class="text-xl font-semibold text-white mb-1">Sustained Flow States</h4>
+<p class="text-gray-400 text-sm">Music designed to help you achieve and maintain the elusive "flow state" for longer.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Promo Video Section Placeholder -->
+<section class="py-16 md:py-24 bg-gradient-to-b from-[#0a0b0b] to-[#070808]" id="promo-video">
+<div class="container mx-auto px-6 text-center">
+<h2 class="text-3xl md:text-4xl font-bold text-white mb-8" data-aos="fade-up">Experience Code Rhythm</h2>
+<p class="text-lg text-gray-400 max-w-2xl mx-auto mb-10" data-aos="fade-up" data-aos-delay="100">
+                    Catch a glimpse of our sonic universe. (Placeholder: Future promo video showcasing music snippets and visuals).
+                </p>
+<div class="aspect-w-16 aspect-h-9 max-w-4xl mx-auto rounded-xl shadow-2xl overflow-hidden border-2 border-[#0098B0]/50" data-aos="zoom-in">
+<img alt="Code Rhythm Promo Video Thumbnail" class="w-full h-full object-cover" onerror="this.alt='Promo video placeholder'; this.src='https://via.placeholder.com/1280x720/070808/0098B0?text=Promo+Video+Coming+Soon';" src="assets/img_1280x720_3819e39e.png"/>
+<!-- Actual video embed would go here, e.g., YouTube iframe -->
+</div>
+</div>
+</section>
+<!-- Testimonials Section -->
+<section class="py-16 md:py-24 bg-[#070808]" id="testimonials">
+<div class="container mx-auto px-6">
+<h2 class="text-3xl md:text-4xl font-bold text-white text-center mb-12 md:mb-16" data-aos="fade-up">From the Dev Community</h2>
+<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+<div class="bg-[#0e0f0f] p-8 rounded-xl shadow-2xl border border-[#6E1CA1]/30" data-aos="fade-up" data-aos-delay="100">
+<div class="flex items-center mb-4">
+<img alt="Testimonial avatar 1" class="w-16 h-16 rounded-full mr-4 border-2 border-[#6E1CA1]" onerror="this.alt='Avatar'; this.src='https://via.placeholder.com/80/6E1CA1/FFFFFF?text=Dev1';" src="assets/img_80x80_6df2e87d.png"/>
+<div>
+<h4 class="text-lg font-semibold text-white">Alex K.</h4>
+<p class="text-sm text-gray-500">Senior Python Developer</p>
+</div>
+</div>
+<p class="text-gray-400 italic">"The Snake Pulse album is my go-to for late-night coding sessions. Seriously helps me stay in the zone."</p>
+</div>
+<div class="bg-[#0e0f0f] p-8 rounded-xl shadow-2xl border border-[#0098B0]/30" data-aos="fade-up" data-aos-delay="200">
+<div class="flex items-center mb-4">
+<img alt="Testimonial avatar 2" class="w-16 h-16 rounded-full mr-4 border-2 border-[#0098B0]" onerror="this.alt='Avatar'; this.src='https://via.placeholder.com/80/0098B0/FFFFFF?text=Dev2';" src="assets/img_80x80_8ed0d360.png"/>
+<div>
+<h4 class="text-lg font-semibold text-white">Jamie L.</h4>
+<p class="text-sm text-gray-500">AI Researcher</p>
+</div>
+</div>
+<p class="text-gray-400 italic">"Neural Nexus is brilliant. The AI-themed tracks are not just clever, they're genuinely great for deep thinking."</p>
+</div>
+<div class="bg-[#0e0f0f] p-8 rounded-xl shadow-2xl border border-[#3A348C]/30" data-aos="fade-up" data-aos-delay="300">
+<div class="flex items-center mb-4">
+<img alt="Testimonial avatar 3" class="w-16 h-16 rounded-full mr-4 border-2 border-[#3A348C]" onerror="this.alt='Avatar'; this.src='https://via.placeholder.com/80/3A348C/FFFFFF?text=Dev3';" src="assets/img_80x80_e19ea4d9.png"/>
+<div>
+<h4 class="text-lg font-semibold text-white">Sam R.</h4>
+<p class="text-sm text-gray-500">Full-Stack Engineer</p>
+</div>
+</div>
+<p class="text-gray-400 italic">"Can't wait for Bytecode Grooves! Code Rhythm just gets what programmers need in their headphones."</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Artists Section (Subtle) -->
+<section class="py-16 md:py-24 bg-gradient-to-b from-[#070808] to-[#0a0b0b]" id="artists">
+<div class="container mx-auto px-6 text-center">
+<h2 class="text-3xl md:text-4xl font-bold text-white mb-6" data-aos="fade-up">The Architects of Sound</h2>
+<p class="text-lg text-gray-400 max-w-2xl mx-auto mb-10" data-aos="fade-up" data-aos-delay="100">
+                    Crafting the soundscapes for your code, our artists blend technology and creativity to produce music that resonates with the programmer's mind.
+                </p>
+<div class="flex flex-wrap justify-center gap-4 md:gap-8" data-aos="fade-up" data-aos-delay="200">
+<span class="text-xl text-[#6E1CA1] font-mono py-2 px-4 border border-[#6E1CA1]/50 rounded-lg shadow-md">Rossum Vance</span>
+<span class="text-xl text-[#0098B0] font-mono py-2 px-4 border border-[#0098B0]/50 rounded-lg shadow-md">Hymn-ton</span>
+<span class="text-xl text-[#3A348C] font-mono py-2 px-4 border border-[#3A348C]/50 rounded-lg shadow-md">G.O.S. Lynne</span>
+</div>
+</div>
+</section>
+<!-- Contact/Newsletter Section -->
+<section class="py-16 md:py-24 bg-[#070808]" id="contact">
+<div class="container mx-auto px-6">
+<div class="max-w-2xl mx-auto text-center">
+<h2 class="text-3xl md:text-4xl font-bold text-white mb-4" data-aos="fade-up">Stay in the Loop</h2>
+<p class="text-lg text-gray-400 mb-8" data-aos="fade-up" data-aos-delay="100">
+                        Be the first to know about new releases (like the upcoming "Bytecode Grooves"!), exclusive content, and more from Code Rhythm.
+                    </p>
+<form class="flex flex-col sm:flex-row gap-4 items-center justify-center" data-aos="fade-up" data-aos-delay="200" id="newsletterForm">
+<label class="sr-only" for="email">Email Address</label>
+<input aria-describedby="emailError" class="w-full sm:w-auto flex-grow px-4 py-3 rounded-lg bg-[#0e0f0f] border border-[#3A348C]/50 text-white focus:ring-2 focus:ring-[#0098B0] focus:border-transparent outline-none transition-all" id="email" name="email" placeholder="your.email@example.com" required="" type="email"/>
+<button class="w-full sm:w-auto bg-[#6E1CA1] hover:bg-[#0098B0] text-white font-semibold px-6 py-3 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 ease-in-out transform hover:scale-105" id="submitButton" type="submit">
+<span id="buttonText">Get Notified</span>
+<i class="fas fa-spinner fa-spin ml-2 hidden" id="buttonSpinner"></i>
+</button>
+</form>
+<p aria-live="polite" class="text-red-400 text-sm mt-2 h-5" id="emailError"></p>
+<p aria-live="polite" class="text-green-400 text-sm mt-2 h-5" id="formMessage"></p>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="py-12 bg-[#0a0b0b] border-t border-[#3A348C]/20">
+<div class="container mx-auto px-6 text-center text-gray-500">
+<div class="mb-4">
+<a class="text-xl font-bold" href="#">
+<img alt="Code Rhythm Logo Small" class="h-8 mx-auto" onerror="this.alt='Code Rhythm'; this.style.display='block'; this.style.width='100px'; this.style.color='white'; this.innerText='Code Rhythm';" src="assets/img_150x45_40123a0d.png"/>
+</a>
+</div>
+<div class="mb-4 space-x-6">
+<a aria-label="Spotify" class="hover:text-[#0098B0]" href="#"><i class="fab fa-spotify fa-lg"></i></a>
+<a aria-label="Apple Music" class="hover:text-[#0098B0]" href="#"><i class="fab fa-apple fa-lg"></i></a>
+<a aria-label="SoundCloud" class="hover:text-[#0098B0]" href="#"><i class="fab fa-soundcloud fa-lg"></i></a>
+<a aria-label="Twitter" class="hover:text-[#0098B0]" href="#"><i class="fab fa-twitter fa-lg"></i></a>
+<a aria-label="Instagram" class="hover:text-[#0098B0]" href="#"><i class="fab fa-instagram fa-lg"></i></a>
+</div>
+<p class="text-sm">© <span id="currentYear"></span> Code Rhythm. All Rights Reserved.</p>
+<p class="text-xs mt-1">Crafting digital symphonies for the modern coder.</p>
+</div>
+</footer>
+<!-- Scripts -->
+<script src="assets/script_255988e4.js"></script>
+<script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize AOS (Animate On Scroll)
+            AOS.init({
+                duration: 800, // values from 0 to 3000, with step 50ms
+                easing: 'ease-in-out-quad', // default easing for AOS animations
+                once: true, // whether animation should happen only once - while scrolling down
+            });
+
+            // GSAP Animations for Hero Section
+            gsap.from(".hero-title span", {
+                duration: 1,
+                y: 50,
+                opacity: 0,
+                stagger: 0.2,
+                ease: "power3.out",
+                delay: 0.5
+            });
+            gsap.from(".hero-subtitle", {
+                duration: 1,
+                y: 30,
+                opacity: 0,
+                ease: "power3.out",
+                delay: 1
+            });
+            gsap.from(".hero-cta", {
+                duration: 1,
+                scale: 0.8,
+                opacity: 0,
+                ease: "back.out(1.7)",
+                delay: 1.5
+            });
+
+            // Particles.js Configuration
+            if (typeof particlesJS !== 'undefined') {
+                particlesJS('particles-js', {
+                    "particles": {
+                        "number": {
+                            "value": 60, // Reduced for subtlety
+                            "density": {
+                                "enable": true,
+                                "value_area": 800
+                            }
+                        },
+                        "color": {
+                            "value": ["#6E1CA1", "#0098B0", "#3A348C"] // Array of colors
+                        },
+                        "shape": {
+                            "type": "edge", // Can be "circle", "edge", "triangle", "polygon", "star", "image"
+                            "stroke": {
+                                "width": 0,
+                                "color": "#000000"
+                            },
+                        },
+                        "opacity": {
+                            "value": 0.4, // Reduced opacity
+                            "random": true,
+                            "anim": {
+                                "enable": true,
+                                "speed": 0.5,
+                                "opacity_min": 0.1,
+                                "sync": false
+                            }
+                        },
+                        "size": {
+                            "value": 2, // Smaller particles
+                            "random": true,
+                            "anim": {
+                                "enable": false,
+                                "speed": 40,
+                                "size_min": 0.1,
+                                "sync": false
+                            }
+                        },
+                        "line_linked": {
+                            "enable": true,
+                            "distance": 120, // Shorter links
+                            "color": "#3A348C", // Link color
+                            "opacity": 0.2, // Fainter links
+                            "width": 1
+                        },
+                        "move": {
+                            "enable": true,
+                            "speed": 1, // Slower movement
+                            "direction": "none",
+                            "random": true,
+                            "straight": false,
+                            "out_mode": "out",
+                            "bounce": false,
+                        }
+                    },
+                    "interactivity": {
+                        "detect_on": "canvas",
+                        "events": {
+                            "onhover": {
+                                "enable": true,
+                                "mode": "grab" // "grab", "bubble", "repulse"
+                            },
+                            "onclick": {
+                                "enable": false, // Disabled click interaction
+                                "mode": "push"
+                            },
+                            "resize": true
+                        },
+                        "modes": {
+                            "grab": {
+                                "distance": 100,
+                                "line_linked": {
+                                    "opacity": 0.5
+                                }
+                            },
+                            "bubble": {
+                                "distance": 200,
+                                "size": 3,
+                                "duration": 2,
+                                "opacity": 0.8,
+                                "speed": 3
+                            },
+                            "repulse": {
+                                "distance": 150,
+                                "duration": 0.4
+                            }
+                        }
+                    },
+                    "retina_detect": true
+                });
+            } else {
+                console.error("Particles.js library not loaded.");
+            }
+
+            // Smooth scroll for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    const hrefAttribute = this.getAttribute('href');
+                    if (hrefAttribute && hrefAttribute.startsWith('#') && hrefAttribute.length > 1) {
+                        const targetElement = document.querySelector(hrefAttribute);
+                        if (targetElement) {
+                            e.preventDefault();
+                            targetElement.scrollIntoView({
+                                behavior: 'smooth'
+                            });
+                        }
+                    }
+                });
+            });
+
+            // Newsletter Form Handling
+            const form = document.getElementById('newsletterForm');
+            const emailInput = document.getElementById('email');
+            const submitButton = document.getElementById('submitButton');
+            const buttonText = document.getElementById('buttonText');
+            const buttonSpinner = document.getElementById('buttonSpinner');
+            const emailError = document.getElementById('emailError');
+            const formMessage = document.getElementById('formMessage');
+
+            form.addEventListener('submit', function(event) {
+                event.preventDefault();
+                emailError.textContent = '';
+                formMessage.textContent = '';
+
+                const email = emailInput.value.trim();
+                if (!validateEmail(email)) {
+                    emailError.textContent = 'Please enter a valid email address.';
+                    emailInput.focus();
+                    return;
+                }
+
+                // Show loading state
+                buttonText.classList.add('hidden');
+                buttonSpinner.classList.remove('hidden');
+                submitButton.disabled = true;
+                emailInput.disabled = true;
+
+                // Simulate API call / data saving
+                setTimeout(() => {
+                    try {
+                        const dataToSave = [{
+                            email: email,
+                            subscribed_at: new Date().toISOString(),
+                            source: 'CodeRhythmLandingPage'
+                        }];
+                        
+                        // Use window.save_data_to_csv for saving
+                        if (typeof window.save_data_to_csv === 'function') {
+                            window.save_data_to_csv('code_rhythm_newsletter_subscriptions.csv', dataToSave);
+                            formMessage.textContent = 'Thanks for subscribing! We\'ll keep you updated.';
+                            formMessage.className = 'text-green-400 text-sm mt-2 h-5';
+                            emailInput.value = ''; // Clear input
+                        } else {
+                            console.error('save_data_to_csv function not found. Data not saved.');
+                            formMessage.textContent = 'Subscription successful (simulated).'; // Fallback for environments without the function
+                            formMessage.className = 'text-yellow-400 text-sm mt-2 h-5';
+                        }
+                        
+                    } catch (error) {
+                        console.error('Error saving data:', error);
+                        formMessage.textContent = 'An error occurred. Please try again.';
+                        formMessage.className = 'text-red-400 text-sm mt-2 h-5';
+                    } finally {
+                        // Reset button state
+                        buttonText.classList.remove('hidden');
+                        buttonSpinner.classList.add('hidden');
+                        submitButton.disabled = false;
+                        emailInput.disabled = false;
+                    }
+                }, 1500); // Simulate network delay
+            });
+
+            function validateEmail(email) {
+                const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                return re.test(String(email).toLowerCase());
+            }
+
+            // Set current year in footer
+            document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+            // Placeholder for Analytics Integration
+            // Example: Google Analytics
+            /*
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+            ga('create', 'YOUR_TRACKING_ID', 'auto');
+            ga('send', 'pageview');
+            */
+            console.log("Analytics placeholder: Integrate your analytics script here.");
+
+
+            // Image error handling - basic example for one image, can be extended
+            const albumImages = document.querySelectorAll('#albums img');
+            albumImages.forEach(img => {
+                img.onerror = function() {
+                    console.error('Failed to load image:', this.src);
+                    // Optionally replace with a generic placeholder or hide
+                    this.alt = this.alt.includes('placeholder') ? this.alt : this.alt + ' (image failed to load)';
+                    // this.src = 'path/to/generic/placeholder.png'; // if you have one
+                    this.style.border = '1px solid red'; // Visual cue for debugging
+                };
+            });
+
+        }); // End DOMContentLoaded
+    </script>
+</body>
+</html>
