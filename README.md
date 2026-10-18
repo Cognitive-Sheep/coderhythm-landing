@@ -11,3 +11,11 @@ python3 -m http.server 8000
 ```
 
 Open http://localhost:8000/. Press Ctrl+C to stop the server.
+
+## Repository layout
+
+- `index.html` — the landing page itself, a single static HTML file.
+- `assets/` — PNG images plus vendored CSS and JS bundles. `index.html` loads most of them; some are unreferenced leftovers.
+- `CNAME` — the custom domain, `coderhythm.art`.
+- `AGENTS.md` — notes for coding agents on the stack, layout and commands.
+- `README.md` — this file.
